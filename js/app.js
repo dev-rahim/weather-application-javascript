@@ -4,9 +4,7 @@ const loadData = async () => {
     const res = await fetch(`https://api.weatherapi.com/v1/current.json?key=9346bda862bd4deea51181702222605&q=${searchFild.value}&aqi=no`);
     // const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchFild.value}&appid=c2756ab52ce9283c29c4a3cd34eba79b`);
     const data = await res.json();
-    console.log(data);
-
-
+    searchFild.value = '';
     document.getElementById('weather-status-container').innerHTML = `
             <img src="${data.current.condition.icon}" alt="">
             <h1>${data.location.name}</h1>
